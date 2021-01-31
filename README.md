@@ -3,7 +3,7 @@
 * 使用java 爬取 JD 上的图片
 * 废话不多说，直接上代码
 pom.xml 引包
-  ~~~xml
+~~~xml 
    <dependencies>
         <dependency>
             <groupId>org.jsoup</groupId>
@@ -37,7 +37,7 @@ pom.xml 引包
     </dependencies>
   ~~~
   * 新建一个对象类
-    ~~~java
+~~~java 
     package com.codervibe.domain;
   /*
   * Created by Administrator on 2021/1/30
@@ -68,10 +68,10 @@ pom.xml 引包
 
 
 
-    ~~~
+~~~
   * 新建一个工具类 
   * 工具类代码
-    ~~~java
+~~~java 
 package com.codervibe.untils;
 /*
 * Created by Administrator on 2021/1/30
@@ -90,9 +90,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
-* @author Administrator
-  */
+ /**
+   * @author Administrator
+   */
   public class HtmlParseUntil {
   //这里的Content是一个对象，是扒下来的图片的内容的对象
   public List<Content> parseJD(String keywords) throws Exception {
@@ -130,11 +130,11 @@ import java.util.List;
   }
   }
 
-   ~~~
+~~~
   
 * 测试代码使用的是junit测试
 * 新建一个测试类 com.codervibe.pareTest
-~~~java
+~~~java 
 package com.codervibe;
 /*
  * Created by Administrator on 2021/1/30
