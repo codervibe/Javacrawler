@@ -1,6 +1,7 @@
 # java爬虫 
 
 * 使用java 爬取 JD 上的图片
+* 废话不多说，直接上代码
 pom.xml 引包
   ~~~xml
    <dependencies>
@@ -35,9 +36,43 @@ pom.xml 引包
         </dependency>
     </dependencies>
   ~~~
+  * 新建一个对象类
+    ~~~java
+    package com.codervibe.domain;
+  /*
+  * Created by Administrator on 2021/1/30
+  * DateTime:2021/01/30 21:16
+  * Description:
+  * Others:
+  */
+
+  import lombok.AllArgsConstructor;
+  import lombok.Data;
+  import lombok.NoArgsConstructor;
+  import lombok.ToString;
+
+  /**
+  * @author Administrator
+  */ 
+    //注解使用插件注解可以自动生成相应的方法
+  @Data
+  @NoArgsConstructor
+  @AllArgsConstructor
+  @ToString
+  
+  public class Content {
+    private String img;
+    private String price;
+    private String title;
+  }
+
+
+
+    ~~~
+  * 新建一个工具类 
   * 工具类代码
     ~~~java
-        package com.codervibe.untils;
+package com.codervibe.untils;
 /*
 * Created by Administrator on 2021/1/30
 * DateTime:2021/01/30 14:55
@@ -59,7 +94,7 @@ import java.util.List;
 * @author Administrator
   */
   public class HtmlParseUntil {
-
+  //这里的Content是一个对象，是扒下来的图片的内容的对象
   public List<Content> parseJD(String keywords) throws Exception {
   //获取请求 https://search.jd.com/Search?keyword=java
   //前提需要联网！！
@@ -96,3 +131,28 @@ import java.util.List;
   }
 
    ~~~
+  
+* 测试代码使用的是junit测试
+* 新建一个测试类 com.codervibe.pareTest
+~~~java
+package com.codervibe;
+/*
+ * Created by Administrator on 2021/1/30
+ * DateTime:2021/01/30 21:27
+ * Description:
+ * Others:
+ */
+
+import com.codervibe.untils.HtmlParseUntil;
+import org.junit.Test;
+
+public class pareTest {
+    @Test
+    public void test() throws Exception {
+        new HtmlParseUntil().parseJD("java").forEach(System.out::println);
+    }
+    
+
+}
+
+~~~
